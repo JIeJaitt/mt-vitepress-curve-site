@@ -240,7 +240,6 @@ onMounted(() => {
           .iconfont {
             font-weight: normal;
             margin-left: 6px;
-            opacity: 0.8;
             color: var(--main-font-second-color);
             transition: color 0.3s;
             &:hover {

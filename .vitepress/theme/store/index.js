@@ -30,6 +30,7 @@ export const mainStore = defineStore("main", {
       // 播放器数据
       playState: false,
       playerShow: true,
+      playerVolume: 0.7,
       playerData: {
         name: "未知曲目",
         artist: "未知艺术家",
@@ -117,6 +118,7 @@ export const mainStore = defineStore("main", {
         "bannerType",
         "useRightMenu",
         "playerShow",
+        "playerVolume",
         "backgroundBlur",
         "backgroundType",
         "fontFamily",

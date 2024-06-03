@@ -13,7 +13,7 @@ import musicLists from "@/assets/musicLists.mjs";
 import "aplayer/dist/APlayer.min.css";
 
 const store = mainStore();
-const { playerShow, playState, playerData } = storeToRefs(store);
+const { playerShow, playerVolume, playState, playerData } = storeToRefs(store);
 
 // APlayer
 const player = ref(null);
@@ -40,7 +40,7 @@ const initAPlayer = async (list) => {
     const APlayer = module.default;
     player.value = new APlayer({
       container: playerDom.value,
-      volume: 1,
+      volume: playerVolume.value,
       lrcType: 3,
       listFolded: true,
       order: "random",
@@ -117,6 +117,14 @@ watch(
     if (!val) return false;
     player.value?.destroy();
     getMusicListData();
+  },
+);
+
+// 监听播放器音量变化
+watch(
+  () => playerVolume.value,
+  (val) => {
+    player.value?.volume(val, true);
   },
 );
 

@@ -175,6 +175,17 @@
               <span class="name">{{ playerData.name }}</span>
               <span class="artist">{{ playerData.artist }}</span>
             </div>
+            <div class="volume" @click.stop>
+              <i
+                class="iconfont icon-volume-down"
+                @click="playerVolume = Math.max(0, playerVolume - 0.1)"
+              />
+              <Slider :value="playerVolume" @update="(val) => (playerVolume = val)" />
+              <i
+                class="iconfont icon-volume-up"
+                @click="playerVolume = Math.min(1, playerVolume + 0.1)"
+              />
+            </div>
             <div class="control" @click.stop>
               <div class="btn" title="上一曲" @click="playerControl('prev')">
                 <i class="iconfont icon-prev"></i>
@@ -215,7 +226,8 @@ import { smoothScrolling, shufflePost, copyText, copyImage, downloadImage } from
 const router = useRouter();
 const store = mainStore();
 const { theme } = useData();
-const { useRightMenu, themeType, playerShow, playState, playerData } = storeToRefs(store);
+const { useRightMenu, themeType, playerShow, playerVolume, playState, playerData } =
+  storeToRefs(store);
 
 // 右键菜单数据
 const rightMenuX = ref(0);
@@ -482,6 +494,30 @@ defineExpose({ openRightMenu });
           font-size: 14px;
           margin-top: 4px;
           color: var(--main-font-second-color);
+        }
+      }
+      .volume {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 6px;
+        margin-top: 1rem;
+        width: 100%;
+        .iconfont {
+          color: var(--main-font-second-color);
+          font-size: 20px;
+          transition: color 0.3s;
+          cursor: pointer;
+          &:first-child {
+            margin-right: 6px;
+          }
+          &:last-child {
+            margin-left: 6px;
+          }
+          &:hover {
+            color: var(--main-color);
+          }
         }
       }
       .control {

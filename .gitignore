@@ -17,6 +17,8 @@ test.html
 .env
 .vitepress/dist
 .vitepress/cache
+.vitepress/components.d.ts
+.vitepress/auto-imports.d.ts
 
 # Editor directories and files
 .vscode/*

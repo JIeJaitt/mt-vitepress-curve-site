@@ -33,6 +33,7 @@
   "dependencies": {
     "@types/node": "^20.12.12",
     "@vite-pwa/vitepress": "^0.4.0",
+    "@vueuse/core": "^10.10.0",
     "algoliasearch": "^4.23.3",
     "aplayer": "^1.10.1",
     "dayjs": "^1.11.11",
@@ -40,6 +41,7 @@
     "pinia": "^2.1.7",
     "pinia-plugin-persistedstate": "^3.2.1",
     "vue": "^3.4.27",
-    "vue-instantsearch": "^4.16.2"
+    "vue-instantsearch": "^4.16.2",
+    "vue-slider-component": "4.1.0-beta.7"
   }
 }
