@@ -1,17 +1,19 @@
 <template>
-  <vue-slider
-    v-model="sliderValue"
-    :min="min"
-    :max="max"
-    :interval="interval"
-    tooltip="none"
-    class="slider"
-    @change="handleChange"
-  />
+  <ClientOnly>
+    <vue-slider
+      v-model="sliderValue"
+      :min="min"
+      :max="max"
+      :interval="interval"
+      tooltip="none"
+      class="slider"
+      @change="handleChange"
+    />
+  </ClientOnly>
 </template>
 
 <script setup>
-import VueSlider from "vue-slider-component";
+const VueSlider = defineAsyncComponent(() => import("vue-slider-component"));
 
 const props = defineProps({
   value: {
@@ -65,7 +67,7 @@ watch(
       height: 16px;
       border: 1px solid var(--main-color-bg);
       background-color: var(--main-color);
-      box-shadow: 0 0 10px 2px var(--main-card-background);
+      box-shadow: 0.5px 0.5px 2px 1px rgba(0, 0, 0, 0.32);
       border-radius: 50%;
       cursor: pointer;
     }
