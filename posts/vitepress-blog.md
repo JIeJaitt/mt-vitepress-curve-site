@@ -1,5 +1,5 @@
 ---
-title: 欢迎使用vitepress
+title: ReferenceError: require is not defined in ES module scope, you can use import instead
 tags: [vitepress, vue]
 categories: [日常随笔]
 date: 2024-03-01 15:11:14
